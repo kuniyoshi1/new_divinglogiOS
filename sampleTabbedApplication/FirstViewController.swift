@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import MapKit
 
 class FirstViewController: UIViewController {
+    @IBOutlet weak var myMap: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        //Appdelegateにアクセスするための準備
+            var myAp = UIApplication.shared.delegate as! AppDelegate
+        //プロパティの値を書き換える（カウントアップ）
+            myAp.myCount += 1
+        //プロパティの値を読み出す
+        print("1画面目 count=\(myAp.myCount)")
     }
 
     override func didReceiveMemoryWarning() {

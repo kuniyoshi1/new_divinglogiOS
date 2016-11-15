@@ -15,6 +15,7 @@
 		9B40B6411DC19F0200FF96AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B40B63F1DC19F0200FF96AA /* LaunchScreen.storyboard */; };
 		9B40B64C1DC19F0200FF96AA /* sampleTabbedApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B64B1DC19F0200FF96AA /* sampleTabbedApplicationTests.swift */; };
 		9B40B6571DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6561DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift */; };
+		9B40B6651DC1A6E000FF96AA /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9B40B6521DC19F0200FF96AA /* sampleTabbedApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sampleTabbedApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B40B6561DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleTabbedApplicationUITests.swift; sourceTree = "<group>"; };
 		9B40B6581DC19F0200FF96AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				9B40B6341DC19F0200FF96AA /* AppDelegate.swift */,
 				9B40B6361DC19F0200FF96AA /* FirstViewController.swift */,
 				9B40B6381DC19F0200FF96AA /* SecondViewController.swift */,
+				9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */,
 				9B40B63A1DC19F0200FF96AA /* Main.storyboard */,
 				9B40B63D1DC19F0200FF96AA /* Assets.xcassets */,
 				9B40B63F1DC19F0200FF96AA /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				9B40B6391DC19F0200FF96AA /* SecondViewController.swift in Sources */,
 				9B40B6351DC19F0200FF96AA /* AppDelegate.swift in Sources */,
+				9B40B6651DC1A6E000FF96AA /* thirdViewController.swift in Sources */,
 				9B40B6371DC19F0200FF96AA /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

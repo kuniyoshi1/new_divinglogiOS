@@ -8,7 +8,7 @@
 
 import UIKit
 
-class thirdViewController: UIViewController {
+class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,24 @@ class thirdViewController: UIViewController {
         //プロパティの値を読み出す
         print("3画面目 count=\(myAp.myCount)")
     }
+    //行数を決定するメソッド
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    //表示するセルの中身
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier:  "myCell")
+        cell.textLabel?.text = "\((indexPath as! NSIndexPath).row)行目"
+        return cell
+    }
+    //選択されたときに行う処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\((indexPath as! NSIndexPath).row)行目を選択")
+    }
+    
+    @IBAction func returenMenu(segue:UIStoryboardSegue){
+    }
+
 
 
     override func didReceiveMemoryWarning() {

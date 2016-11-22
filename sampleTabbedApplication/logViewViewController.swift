@@ -1,18 +1,33 @@
 //
-//  profileViewController.swift
+//  logViewViewController.swift
 //  sampleTabbedApplication
 //
-//  Created by 國吉イチ on 2016/11/21.
+//  Created by 國吉イチ on 2016/11/22.
 //  Copyright © 2016年 國吉イチ. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class profileViewController: UIViewController {
-    var settitle:Array! = []
+class logViewViewController: UIViewController {
+    @IBOutlet weak var settitle: UITextField!
+    @IBOutlet weak var point: UITextField!
+    @IBOutlet weak var bady: UITextField!
+    @IBOutlet weak var wather: UITextField!
+    @IBOutlet weak var tmp: UITextField!
+    @IBOutlet weak var utmp: UITextField!
+    @IBOutlet weak var weit: UITextField!
+    @IBOutlet weak var suits: UITextField!
+    @IBOutlet weak var depth: UITextField!
+    @IBOutlet weak var mdepth: UITextField!
+    @IBOutlet weak var spres: UITextField!
+    @IBOutlet weak var fpres: UITextField!
+    @IBOutlet weak var memo: UITextView!
+    @IBOutlet weak var memo2: UITextView!
+    
+    var log:Array! = []
 
-    @IBOutlet weak var diveCount: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,23 +37,18 @@ class profileViewController: UIViewController {
         do {
             let fetchResults = try viewContext.fetch(query)
             for result: AnyObject in fetchResults {
-                let title: String? = result.value(forKey: "title") as? String
+                let title: String? = result as? String
                 
                 print("title\(title)")
-                settitle.append(title!)
+                log.append(title!)
             }
         } catch {
         }
         
-        diveCount.text = "ログ数：\(settitle.count)"
-        
     }
-        // Do any additional setup after loading the view.
+
+        
     
-
-
-
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,6 +65,5 @@ class profileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 
 }

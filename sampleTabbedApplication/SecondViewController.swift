@@ -32,6 +32,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         //Appdelegateにアクセスするための準備
@@ -62,6 +63,7 @@ class SecondViewController: UIViewController {
         newRecord.setValue("\(ftime.text!)", forKey: "ftime")//値を代入
         newRecord.setValue("\(memo.text!)", forKey: "memo")//値を代入
         newRecord.setValue("\(memo2.text!)", forKey: "memo2")//値を代入
+        newRecord.setValue(Date(), forKey: "created_at")
         
         
         do {
@@ -69,6 +71,8 @@ class SecondViewController: UIViewController {
         } catch {
         }
     }
+    
+    
     
 //    @IBAction func test(_ sender: UIButton) {
 //        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate

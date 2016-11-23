@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="-737"/>
+            <point key="canvasLocation" x="1030" y="-210"/>
         </scene>
         <!--LOG-->
         <scene sceneID="wg7-f3-ORb">
@@ -366,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="-1"/>
+            <point key="canvasLocation" x="1030" y="797"/>
         </scene>
         <!--profile-->
         <scene sceneID="Lp8-co-TEJ">
@@ -397,7 +397,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEX-0G-0HN" id="CO7-x9-z51">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -712,7 +712,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KeU-Sr-nxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rUz-us-pFi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="989.60000000000002" y="1674.9625187406298"/>
+            <point key="canvasLocation" x="-482" y="2061"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="xis-pu-uz2">
@@ -786,7 +786,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3U5-Jc-cGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7ac-fu-xRY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="715"/>
+            <point key="canvasLocation" x="511" y="1821"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -806,7 +806,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-2" y="208"/>
         </scene>
     </scenes>
     <resources>

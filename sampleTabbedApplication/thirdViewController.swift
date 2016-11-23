@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
-    var log:[NSDictionary]? = nil
+    var log:[NSDictionary] = []
     var selectedName:String = ""
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
                 let logs: NSDictionary =  ["title":result["title"] as! String, "created":result["created_at"] as! Date]
                 
                 print("\(logs)")
-                log?.append(logs)
+                log.append(logs)
                 
             
             }
@@ -48,7 +48,7 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
     //表示するセルの中身
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier:  "myCell")
-        var title2:String = log![(indexPath as NSIndexPath).row]["title"] as! String
+        var title2:String = log[(indexPath as NSIndexPath).row]["title"] as! String
         cell.textLabel?.text = title2
         return cell
     }

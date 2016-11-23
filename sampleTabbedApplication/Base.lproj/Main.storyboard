@@ -239,6 +239,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-wm-72G">
+                                        <rect key="frame" x="8" y="890" width="359" height="228"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </mapView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ke8-h9-pbg">
+                                        <rect key="frame" x="139" y="852" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tjm-a5-MCO" firstAttribute="leading" secondItem="2J8-oL-7Hx" secondAttribute="leading" id="08G-za-7bk"/>
@@ -348,8 +359,10 @@
                     <connections>
                         <outlet property="bady" destination="KLE-CP-eon" id="rT0-zM-2YL"/>
                         <outlet property="depth" destination="gWm-Gd-i5j" id="xUu-G5-IJJ"/>
+                        <outlet property="dispMap" destination="ArA-wm-72G" id="B81-vs-1wt"/>
                         <outlet property="fpres" destination="YO1-ev-aeE" id="RP6-gR-iau"/>
                         <outlet property="ftime" destination="MOl-W9-Pqw" id="s5O-j4-N6r"/>
+                        <outlet property="inputText" destination="Ke8-h9-pbg" id="FtR-gW-e3Y"/>
                         <outlet property="mdepth" destination="HRC-g6-KLO" id="zEz-Uv-KQE"/>
                         <outlet property="memo" destination="Yaa-2b-QqO" id="zw1-jE-3YX"/>
                         <outlet property="memo2" destination="gUv-Aj-uzL" id="2h6-4V-PNe"/>
@@ -366,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="797"/>
+            <point key="canvasLocation" x="1029.5999999999999" y="796.10194902548733"/>
         </scene>
         <!--profile-->
         <scene sceneID="Lp8-co-TEJ">
@@ -397,7 +410,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEX-0G-0HN" id="CO7-x9-z51">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>

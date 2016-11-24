@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B27B1251DE5E0A1003200FF /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27B1241DE5E0A1003200FF /* myTableViewCell.swift */; };
 		9B40B6351DC19F0200FF96AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6341DC19F0200FF96AA /* AppDelegate.swift */; };
 		9B40B6371DC19F0200FF96AA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6361DC19F0200FF96AA /* FirstViewController.swift */; };
 		9B40B6391DC19F0200FF96AA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6381DC19F0200FF96AA /* SecondViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B27B1241DE5E0A1003200FF /* myTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
 		9B40B6311DC19F0200FF96AA /* sampleTabbedApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampleTabbedApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B40B6341DC19F0200FF96AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B40B6361DC19F0200FF96AA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				9BFD85DF1DDEAC5D0069F9C5 /* CountViewController.swift */,
 				9BF314241DE2827000A3EB63 /* profileViewController.swift */,
 				9BF314601DE3DECD00A3EB63 /* logViewViewController.swift */,
+				9B27B1241DE5E0A1003200FF /* myTableViewCell.swift */,
 			);
 			path = sampleTabbedApplication;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				9B40B6391DC19F0200FF96AA /* SecondViewController.swift in Sources */,
 				9BFD85DA1DDD523C0069F9C5 /* logmodel.xcdatamodeld in Sources */,
 				9BF314251DE2827000A3EB63 /* profileViewController.swift in Sources */,
+				9B27B1251DE5E0A1003200FF /* myTableViewCell.swift in Sources */,
 				9BFD85DE1DDD57070069F9C5 /* Divinglog+CoreDataProperties.swift in Sources */,
 				9BF314611DE3DECD00A3EB63 /* logViewViewController.swift in Sources */,
 				9B40B6351DC19F0200FF96AA /* AppDelegate.swift in Sources */,

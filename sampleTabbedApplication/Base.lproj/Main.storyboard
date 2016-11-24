@@ -239,17 +239,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-wm-72G">
-                                        <rect key="frame" x="8" y="890" width="359" height="228"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </mapView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ke8-h9-pbg">
-                                        <rect key="frame" x="139" y="852" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tjm-a5-MCO" firstAttribute="leading" secondItem="2J8-oL-7Hx" secondAttribute="leading" id="08G-za-7bk"/>
@@ -359,10 +348,8 @@
                     <connections>
                         <outlet property="bady" destination="KLE-CP-eon" id="rT0-zM-2YL"/>
                         <outlet property="depth" destination="gWm-Gd-i5j" id="xUu-G5-IJJ"/>
-                        <outlet property="dispMap" destination="ArA-wm-72G" id="B81-vs-1wt"/>
                         <outlet property="fpres" destination="YO1-ev-aeE" id="RP6-gR-iau"/>
                         <outlet property="ftime" destination="MOl-W9-Pqw" id="s5O-j4-N6r"/>
-                        <outlet property="inputText" destination="Ke8-h9-pbg" id="FtR-gW-e3Y"/>
                         <outlet property="mdepth" destination="HRC-g6-KLO" id="zEz-Uv-KQE"/>
                         <outlet property="memo" destination="Yaa-2b-QqO" id="zw1-jE-3YX"/>
                         <outlet property="memo2" destination="gUv-Aj-uzL" id="2h6-4V-PNe"/>
@@ -406,14 +393,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CEX-0G-0HN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="CEX-0G-0HN" customClass="myTableViewCell" customModule="sampleTabbedApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEX-0G-0HN" id="CO7-x9-z51">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvb-9o-nPz">
+                                                    <frame key="frameInset" minX="272" minY="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="hideLabel" destination="xvb-9o-nPz" id="jna-hD-eQw"/>
                                             <segue destination="Bja-AB-NZS" kind="show" identifier="secondSegue" trigger="accessoryAction" id="sie-t3-hbg"/>
                                         </connections>
                                     </tableViewCell>
@@ -426,6 +423,9 @@
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="profile" id="RmK-7H-i8X"/>
+                    <connections>
+                        <outlet property="myTable" destination="ueJ-XA-eNR" id="Hm6-Rs-cWC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uu2-Op-pXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -718,8 +718,8 @@
                         <outlet property="suits" destination="bcP-nq-IEe" id="hXh-Jv-Djb"/>
                         <outlet property="tmp" destination="4aL-xL-fbM" id="dCA-Yr-fna"/>
                         <outlet property="utmp" destination="z7P-6T-3yW" id="ceY-QW-LYZ"/>
+                        <outlet property="wather" destination="cm0-cZ-rHs" id="hA3-Ym-ZDs"/>
                         <outlet property="weit" destination="MuT-iW-Mfy" id="Vun-o4-8wa"/>
-                        <outlet property="wether" destination="cm0-cZ-rHs" id="XPD-CV-DXf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KeU-Sr-nxy" userLabel="First Responder" sceneMemberID="firstResponder"/>

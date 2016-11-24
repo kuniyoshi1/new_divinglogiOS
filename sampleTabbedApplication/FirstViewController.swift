@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
         //Appdelegateにアクセスするための準備
             var myAp = UIApplication.shared.delegate as! AppDelegate
         //プロパティの値を書き換える（カウントアップ）
-            myAp.myCount += 1
+            myAp.myCount = "log"
         //プロパティの値を読み出す
         print("1画面目 count=\(myAp.myCount)")
     }

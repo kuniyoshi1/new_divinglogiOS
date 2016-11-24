@@ -26,24 +26,63 @@ class logViewViewController: UIViewController {
     @IBOutlet weak var memo2: UITextView!
     
     var log:Array! = []
+     var settitle3:[NSDictionary] = []
 
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
         let query: NSFetchRequest<Divinglog> = Divinglog.fetchRequest()
+        // Entityを指定する設定
+        let entityDiscription = NSEntityDescription.entity(forEntityName: "Divinglog", in: viewContext)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Divinglog")
+        fetchRequest.entity = entityDiscription
+        
+        //Appdelegateにアクセスするための準備
+        var myAp = UIApplication.shared.delegate as! AppDelegate
+        let created2 = DateFormatter()
+        created2.dateFormat = "yyyy/MM/dd hh:mm:ss "
+        print("ああああああ\(myAp.myCount)")
+        let dtcreated:Date = created2.date(from: myAp.myCount as! String)!
+        // データを一件取得する
+        let predicate = NSPredicate(format: "%K = %@", "created_at", "\(dtcreated)")
+        fetchRequest.predicate = predicate
+        
+        var error: NSError? = nil
+
+        
         do {
             let fetchResults = try viewContext.fetch(query)
             for result: AnyObject in fetchResults {
-                let title: String? = result as? String
-                
-                print("title\(title)")
-                log.append(title!)
+                var title1 = (result.value(forKey: "title") as? String)!
+                var weit1 = (result.value(forKey: "weit") as? String)!
+                var water1 = (result.value(forKey: "wather") as? String)!
+                var utmp1 = (result.value(forKey: "utmp") as? String)!
+                var tmp1 = (result.value(forKey: "tmp") as? String)!
+                var suit1 = (result.value(forKey: "suit") as? String)!
+                var stime1 = (result.value(forKey: "stime") as? String)!
+                var ftime1 = (result.value(forKey: "ftime") as? String)!
+                var spres1 = (result.value(forKey: "spres") as? String)!
+                var fpres1 = (result.value(forKey: "fpres") as? String)!
+                var point1 = (result.value(forKey: "point") as? String)!
+                var memo1 = (result.value(forKey: "memo") as? String)!
+                var memo21 = (result.value(forKey: "memo2") as? String)!
+                var depth1 = (result.value(forKey: "depth") as? String)!
+                var mdepth1 = (result.value(forKey: "mdepth") as? String)!
+                var created_at: Date! = result.value(forKey: "created_at") as! Date
+                let title : NSDictionary =  ["title":title1, "created":created_at, "weit":weit1, "wather":water1,"utmp":utmp1,"tmp":tmp1,"suit":suit1,"stime":stime1,"ftime":ftime1,"spres":spres1,"fpres":fpres1,"point":point1,"memo":memo1,"memo2":memo21,"depth":depth1,"mdepth":mdepth1]
+                settitle3.append(title)
+                print(settitle3)
             }
         } catch {
         }
+        var settitle2:NSArray = settitle3 as NSArray
+        let sortDescription = NSSortDescriptor(key: "created", ascending: false)
+        let sortDescAry = [sortDescription]
+        settitle3 = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
         
     }
 

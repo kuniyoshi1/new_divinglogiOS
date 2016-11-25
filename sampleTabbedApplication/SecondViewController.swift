@@ -38,7 +38,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate {
         //Appdelegateにアクセスするための準備
         var myAp = UIApplication.shared.delegate as! AppDelegate
         //プロパティの値を書き換える（カウントアップ）
-        myAp.myCount = "addlog"
+  //      myAp.myCount = "addlog"
         //プロパティの値を読み出す
         print("2画面目 count=\(myAp.myCount)")
     }

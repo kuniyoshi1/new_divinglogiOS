@@ -366,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029.5999999999999" y="796.10194902548733"/>
+            <point key="canvasLocation" x="1145" y="797"/>
         </scene>
         <!--profile-->
         <scene sceneID="Lp8-co-TEJ">
@@ -714,7 +714,9 @@
                         <outlet property="mdepth" destination="bcv-a3-drH" id="d5k-O8-A5A"/>
                         <outlet property="memo" destination="hpb-P1-29O" id="IQC-zN-ANI"/>
                         <outlet property="memo2" destination="LyX-D6-RrO" id="tMd-XQ-2Lq"/>
+                        <outlet property="point" destination="ZX9-7c-gdf" id="aS8-k1-7If"/>
                         <outlet property="settitle" destination="29t-be-ehg" id="oGM-6x-Bn1"/>
+                        <outlet property="spres" destination="uWH-d7-882" id="gOK-Le-8Ft"/>
                         <outlet property="suits" destination="bcP-nq-IEe" id="hXh-Jv-Djb"/>
                         <outlet property="tmp" destination="4aL-xL-fbM" id="dCA-Yr-fna"/>
                         <outlet property="utmp" destination="z7P-6T-3yW" id="ceY-QW-LYZ"/>

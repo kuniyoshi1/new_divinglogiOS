@@ -44,18 +44,19 @@ class logViewViewController: UIViewController {
         //Appdelegateにアクセスするための準備
         var myAp = UIApplication.shared.delegate as! AppDelegate
         let created2 = DateFormatter()
-        created2.dateFormat = "yyyy/MM/dd hh:mm:ss "
+        created2.dateFormat = "yyyy/MM/dd hh:mm:ss +0000 "
         print("ああああああ\(myAp.myCount)")
-        let dtcreated:Date = created2.date(from: myAp.myCount as! String)!
+        let dtcreated:Date = created2.date(from: myAp.myCount + "+0000" as! String)!
         // データを一件取得する
         let predicate = NSPredicate(format: "%K = %@", "created_at", "\(dtcreated)")
         fetchRequest.predicate = predicate
-        
+        print("ははは\(predicate)")
         var error: NSError? = nil
 
         
         do {
             let fetchResults = try viewContext.fetch(query)
+            print(fetchResults)
             for result: AnyObject in fetchResults {
                 var title1 = (result.value(forKey: "title") as? String)!
                 var weit1 = (result.value(forKey: "weit") as? String)!
@@ -75,7 +76,7 @@ class logViewViewController: UIViewController {
                 var created_at: Date! = result.value(forKey: "created_at") as! Date
                 let title : NSDictionary =  ["title":title1, "created":created_at, "weit":weit1, "wather":water1,"utmp":utmp1,"tmp":tmp1,"suit":suit1,"stime":stime1,"ftime":ftime1,"spres":spres1,"fpres":fpres1,"point":point1,"memo":memo1,"memo2":memo21,"depth":depth1,"mdepth":mdepth1]
                 settitle3.append(title)
-                print(settitle3)
+            
             }
         } catch {
         }
@@ -83,6 +84,26 @@ class logViewViewController: UIViewController {
         let sortDescription = NSSortDescriptor(key: "created", ascending: false)
         let sortDescAry = [sortDescription]
         settitle3 = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
+        print(myAp.test)
+        print(settitle3[myAp.test]["point"]!)
+        
+        settitle.text = settitle3[myAp.test]["title"] as! String!
+        point.text = settitle3[myAp.test]["point"] as! String!
+        bady.text = settitle3[myAp.test]["bady"] as! String!
+        wather.text = settitle3[myAp.test]["wather"] as! String!
+        tmp.text = settitle3[myAp.test]["tmp"] as! String!
+        utmp.text = settitle3[myAp.test]["utmp"] as! String!
+        weit.text = settitle3[myAp.test]["weit"] as! String!
+        suits.text = settitle3[myAp.test]["suit"] as! String!
+        depth.text = settitle3[myAp.test]["depth"] as! String!
+        mdepth.text = settitle3[myAp.test]["mdepth"] as! String!
+        spres.text = settitle3[myAp.test]["spres"] as! String!
+        fpres.text = settitle3[myAp.test]["fpres"] as! String!
+        memo.text = settitle3[myAp.test]["memo"] as! String!
+        memo2.text = settitle3[myAp.test]["memo2"] as! String!
+        
+        
+        
         
     }
 

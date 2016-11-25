@@ -44,6 +44,7 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         
     }
+    
     override func viewDidAppear(_ animated: Bool) {
                 //プロパティの値を書き換える（カウントアップ）
             }
@@ -69,14 +70,15 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
         cell2.hideLabel.text = strcreated as! String?
         return cell2
     }
+        
     //選択されたときに行う処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\((indexPath as! NSIndexPath).row)行目を選択")
-        var cell2 = tableView.dequeueReusableCell(withIdentifier: "myCell",for: indexPath) as! myTableViewCell
-
+        var cell2 = myTable.cellForRow(at: indexPath) as! myTableViewCell
         //Appdelegateにアクセスするための準備
         var myAp = UIApplication.shared.delegate as! AppDelegate
         myAp.myCount = cell2.hideLabel.text!
+        myAp.test = (indexPath as! NSIndexPath).row
         print(cell2.hideLabel.text)
         print("あああああ\(myAp.myCount)")
         

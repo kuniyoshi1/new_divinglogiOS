@@ -36,6 +36,9 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
     
     @IBOutlet weak var imageFromCameraRoll: UIImageView!
     
+    var lat:Double = 0
+    var long:Double = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,8 +161,9 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
             annotation.title = "ピン"
             annotation.subtitle = "\(annotation.coordinate.latitude), \(annotation.coordinate.longitude)"
             dispMap.addAnnotation(annotation)
-            print(annotation.coordinate.latitude)
-        
+            lat = annotation.coordinate.latitude
+            long = annotation.coordinate.longitude
+
     }
     }
     
@@ -223,7 +227,8 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         newRecord.setValue("\(memo.text!)", forKey: "memo")//値を代入
         newRecord.setValue("\(memo2.text!)", forKey: "memo2")//値を代入
         newRecord.setValue(Date(), forKey: "created_at")
-        newRecord.setValue("\(targetCoordinate)", forKey: "place")
+        newRecord.setValue(lat, forKey: "lat")
+        newRecord.setValue(long, forKey: "long")
         
         
         do {

@@ -95,25 +95,24 @@ class logViewViewController: UIViewController {
         memo.text = settitle3[myAp.test]["memo"] as! String!
         memo2.text = settitle3[myAp.test]["memo2"] as! String!
         
-        var targetCoordinate = settitle3[myAp.test]["place"] as! Double
+        print(settitle3[myAp.test]["lat"])
+        print(settitle3[myAp.test]["long"])
+        let lat = settitle3[myAp.test]["lat"] as! Double
+        let long = settitle3[myAp.test]["long"] as! Double
         
-        //⑩MKPointAnnotationインスタンスを取得し、ピンを生成
-        let pin = MKPointAnnotation()
+         let center = CLLocationCoordinate2DMake(lat,long)
+        //ピンを生成
+        let Pin:MKPointAnnotation = MKPointAnnotation()
+        //座標を設定
+        Pin.coordinate = center
+        //タイトルを設定
+        Pin.title = "\(settitle3[myAp.test]["title"])"
 
-        //11　ピンの置く場所に緯度経度を設定
-      //  pin.coordinate = targetCoordinate
-        //12　ピンのタイトルを設定
-        pin.title = settitle3[myAp.test]["title"] as? String
-        
         //13　ピンを地図に置く
-        self.logMap.addAnnotation(pin)
-        
-        //14　緯度経度を中心にして半径2000mの範囲を表示
-    //   self.logMap.region = MKCoordinateRegionMakeWithDistance(targetCoordinate, 2000.0, 2000.0)
+        self.logMap.addAnnotation(Pin)
 
-        
-        
-        
+        //14　緯度経度を中心にして半径2000mの範囲を表示
+       self.logMap.region = MKCoordinateRegionMakeWithDistance(center, 2000.0, 2000.0)
         
     }
 

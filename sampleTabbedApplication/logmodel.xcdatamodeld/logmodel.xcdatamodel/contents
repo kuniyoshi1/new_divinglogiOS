@@ -6,10 +6,11 @@
         <attribute name="depth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fpres" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ftime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="mdepth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memo2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="place" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="point" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="spres" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stime" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,6 +22,6 @@
         <attribute name="weit" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Divinglog" positionX="-63" positionY="-18" width="128" height="315"/>
+        <element name="Divinglog" positionX="-63" positionY="-18" width="128" height="330"/>
     </elements>
 </model>

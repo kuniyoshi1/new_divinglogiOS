@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class logViewViewController: UIViewController {
     @IBOutlet weak var settitle: UITextField!
@@ -24,6 +25,7 @@ class logViewViewController: UIViewController {
     @IBOutlet weak var fpres: UITextField!
     @IBOutlet weak var memo: UITextView!
     @IBOutlet weak var memo2: UITextView!
+    @IBOutlet weak var logMap: MKMapView!
     
     var log:Array! = []
      var settitle3:[NSDictionary] = []
@@ -43,16 +45,7 @@ class logViewViewController: UIViewController {
         
         //Appdelegateにアクセスするための準備
         var myAp = UIApplication.shared.delegate as! AppDelegate
-        let created2 = DateFormatter()
-        created2.dateFormat = "yyyy/MM/dd hh:mm:ss +0000 "
-        print("ああああああ\(myAp.myCount)")
-        let dtcreated:Date = created2.date(from: myAp.myCount + "+0000" as! String)!
-        // データを一件取得する
-        let predicate = NSPredicate(format: "%K = %@", "created_at", "\(dtcreated)")
-        fetchRequest.predicate = predicate
-        print("ははは\(predicate)")
-        var error: NSError? = nil
-
+    
         
         do {
             let fetchResults = try viewContext.fetch(query)
@@ -102,12 +95,29 @@ class logViewViewController: UIViewController {
         memo.text = settitle3[myAp.test]["memo"] as! String!
         memo2.text = settitle3[myAp.test]["memo2"] as! String!
         
+        var targetCoordinate = settitle3[myAp.test]["place"] as! Double
+        
+        //⑩MKPointAnnotationインスタンスを取得し、ピンを生成
+        let pin = MKPointAnnotation()
+
+        //11　ピンの置く場所に緯度経度を設定
+      //  pin.coordinate = targetCoordinate
+        //12　ピンのタイトルを設定
+        pin.title = settitle3[myAp.test]["title"] as? String
+        
+        //13　ピンを地図に置く
+        self.logMap.addAnnotation(pin)
+        
+        //14　緯度経度を中心にして半径2000mの範囲を表示
+    //   self.logMap.region = MKCoordinateRegionMakeWithDistance(targetCoordinate, 2000.0, 2000.0)
+
+        
         
         
         
     }
 
-        
+    
     
 
     override func didReceiveMemoryWarning() {

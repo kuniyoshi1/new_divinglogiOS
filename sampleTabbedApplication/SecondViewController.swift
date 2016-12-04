@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import MapKit
+import Photos
+import MobileCoreServices
 
 class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -38,6 +40,8 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
     
     var lat:Double = 0
     var long:Double = 0
+    var photoUrl:String = ""
+    var strURL = ""
     
     
     override func viewDidLoad() {
@@ -58,6 +62,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         stime.delegate = self
         ftime.delegate = self
         serch.delegate = self
+
         
         //アノテーションビューを返すメソッド
         func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -167,43 +172,69 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
     }
     }
     
-    func pickImageFromLibrary() {
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {    //追記
-            
-            //写真ライブラリ(カメラロール)表示用のViewControllerを宣言しているという理解
-            let controller = UIImagePickerController()
-            
-            //おまじないという認識で今は良いと思う
-            controller.delegate = self
-            
-            //新しく宣言したViewControllerでカメラとカメラロールのどちらを表示するかを指定
-            //以下はカメラロールの例
-            //.Cameraを指定した場合はカメラを呼び出し(シミュレーター不可)
-            controller.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            
-            //新たに追加したカメラロール表示ViewControllerをpresentViewControllerにする
-            self.present(controller, animated: true, completion: nil)
-        }
-    }
     
     @IBAction func imagePic(_ sender: UIButton) {
-        pickImageFromLibrary()  //ライブラリから写真を選択する
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {    //追記
+            //写真ライブラリ(カメラロール)表示用のViewControllerを宣言
+            let controller = UIImagePickerController()
+            
+            controller.delegate = self
+            //新しく宣言したViewControllerでカメラとカメラロールのどちらを表示するかを指定
+            controller.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            //トリミング
+            controller.allowsEditing = true
+            //新たに追加したカメラロール表示ViewControllerをpresentViewControllerにする
+            self.present(controller, animated: true, completion: nil)
+            
+        }
+        //UserDefaultから取り出す
+        // ユーザーデフォルトを用意する
+        let myDefault = UserDefaults.standard
+        
+        // データを取り出す
+         strURL = myDefault.string(forKey: "selectedPhotoURL")!
+        
+        if strURL != nil{
+            
+            let url = URL(string: strURL as String!)
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+            let manager: PHImageManager = PHImageManager()
+            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+                self.imageFromCameraRoll.image = image
+            }
+        }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo: [String: AnyObject]) {
+    //カメラロールで写真を選んだ後
+    func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        //このif条件はおまじないという認識で今は良いと思う
-        if didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] != nil {
-            
-            //didFinishPickingMediaWithInfo通して渡された情報(選択された画像情報が入っている？)をUIImageにCastする
-            //そしてそれを宣言済みのimageViewへ放り込む
-            imageFromCameraRoll.image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage
-        }
-        //写真選択後にカメラロール表示ViewControllerを引っ込める動作
-        picker.dismiss(animated: true, completion: nil)
+        
+        let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]! as AnyObject
+        
+        let strURL:String = assetURL.description
+        
+        //Coredeta用に代入
+        photoUrl = strURL
+        
+        print(photoUrl)
+        
+        
+        // ユーザーデフォルトを用意する
+        let myDefault = UserDefaults.standard
+        
+        // データを書き込んで
+        myDefault.set(strURL, forKey: "selectedPhotoURL")
+        
+        // 即反映させる
+        myDefault.synchronize()
+        
+        //閉じる処理
+        imagePicker.dismiss(animated: true, completion: nil)
+        
     }
-
+    
+   
     
     @IBAction func tapSave(_ sender: UIButton) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -229,7 +260,10 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         newRecord.setValue(Date(), forKey: "created_at")
         newRecord.setValue(lat, forKey: "lat")
         newRecord.setValue(long, forKey: "long")
-        
+        newRecord.setValue("\(photoUrl)", forKey: "photoUrl")
+        print(lat)
+        print(long)
+        print(photoUrl)
         
         do {
             try viewContext.save()

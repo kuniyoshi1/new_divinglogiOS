@@ -11,6 +11,7 @@
         <attribute name="mdepth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memo2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="point" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="spres" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stime" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,6 +23,6 @@
         <attribute name="weit" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Divinglog" positionX="-63" positionY="-18" width="128" height="330"/>
+        <element name="Divinglog" positionX="-63" positionY="-18" width="128" height="345"/>
     </elements>
 </model>

@@ -50,31 +50,42 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         //Appdelegateにアクセスするための準備
         var myAp = UIApplication.shared.delegate as! AppDelegate
-    
+        var df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd hh:mm:ss +0000"
+        df.timeZone = TimeZone.current
+        //保存していた日付を文字列からDate型に変換
+        var savedDateTime:NSDate = df.date(from: "\(myAp.myCount)") as! NSDate
+        
+        print(savedDateTime)
+        
+        
+        //検索条件として指定
+        let predicate = NSPredicate(format: "SELF.created_at = %@", savedDateTime )
+        query.predicate = predicate
         
         do {
             let fetchResults = try viewContext.fetch(query)
             print(fetchResults)
             for result: AnyObject in fetchResults {
-                var title1 = (result.value(forKey: "title") as? String)!
-                var weit1 = (result.value(forKey: "weit") as? String)!
-                var water1 = (result.value(forKey: "wather") as? String)!
-                var utmp1 = (result.value(forKey: "utmp") as? String)!
-                var tmp1 = (result.value(forKey: "tmp") as? String)!
-                var suit1 = (result.value(forKey: "suit") as? String)!
-                var stime1 = (result.value(forKey: "stime") as? String)!
-                var ftime1 = (result.value(forKey: "ftime") as? String)!
-                var spres1 = (result.value(forKey: "spres") as? String)!
-                var fpres1 = (result.value(forKey: "fpres") as? String)!
-                var point1 = (result.value(forKey: "point") as? String)!
-                var memo1 = (result.value(forKey: "memo") as? String)!
-                var memo21 = (result.value(forKey: "memo2") as? String)!
-                var depth1 = (result.value(forKey: "depth") as? String)!
-                var mdepth1 = (result.value(forKey: "mdepth") as? String)!
+                var title1:String = result.value(forKey: "title") as! String
+                var weit1:String = result.value(forKey: "weit") as! String
+                var water1:String = result.value(forKey: "wather") as! String
+                var utmp1:String = result.value(forKey: "utmp") as! String
+                var tmp1:String = result.value(forKey: "tmp") as! String
+                var suit1:String = result.value(forKey: "suit") as! String
+                var stime1:String = result.value(forKey: "stime") as! String
+                var ftime1:String = result.value(forKey: "ftime") as! String
+                var spres1:String = result.value(forKey: "spres") as! String
+                var fpres1:String = result.value(forKey: "fpres") as! String
+                var point1:String = result.value(forKey: "point") as! String
+                var memo1:String = result.value(forKey: "memo") as! String
+                var memo21:String = result.value(forKey: "memo2") as! String
+                var depth1:String = result.value(forKey: "depth") as! String
+                var mdepth1:String = result.value(forKey: "mdepth") as! String
                 var created_at: Date! = result.value(forKey: "created_at") as! Date
-                var lat = result.value(forKey: "lat") as! Double
-                var long = result.value(forKey: "long") as! Double
-                var photoUrl = (result.value(forKey: "photoUrl") as? String)!
+                var lat:Double = result.value(forKey: "lat") as! Double
+                var long:Double = result.value(forKey: "long") as! Double
+                var photoUrl:String = result.value(forKey: "photoUrl") as! String
                 
                 let title : NSDictionary =  ["title":title1, "created":created_at, "weit":weit1, "wather":water1,"utmp":utmp1,"tmp":tmp1,"suit":suit1,"stime":stime1,"ftime":ftime1,"spres":spres1,"fpres":fpres1,"point":point1,"memo":memo1,"memo2":memo21,"depth":depth1,"mdepth":mdepth1,"lat":lat,"long":long,"photoUrl":photoUrl]
                 settitle3.append(title)

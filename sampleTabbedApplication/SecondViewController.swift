@@ -35,6 +35,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
     @IBOutlet weak var dispMap: MKMapView!
     
     var targetCoordinate:String = ""
+    var photo:String = ""
     
     @IBOutlet weak var imageFromCameraRoll: UIImageView!
     
@@ -190,11 +191,11 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         //UserDefaultから取り出す
         // ユーザーデフォルトを用意する
         let myDefault = UserDefaults.standard
-        
+        if photo != nil{
         // データを取り出す
-         strURL = myDefault.string(forKey: "selectedPhotoURL")!
+         strURL = photo
         
-        if strURL != nil{
+        
             
             let url = URL(string: strURL as String!)
             let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
@@ -228,6 +229,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         
         // 即反映させる
         myDefault.synchronize()
+        photo = strURL
         
         //閉じる処理
         imagePicker.dismiss(animated: true, completion: nil)
@@ -257,7 +259,13 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         newRecord.setValue("\(ftime.text!)", forKey: "ftime")//値を代入
         newRecord.setValue("\(memo.text!)", forKey: "memo")//値を代入
         newRecord.setValue("\(memo2.text!)", forKey: "memo2")//値を代入
-        newRecord.setValue(Date(), forKey: "created_at")
+        let created2 = DateFormatter()
+        created2.dateFormat = "yyyy/MM/dd hh:mm:ss"
+        created2.timeZone = TimeZone.current
+        
+        var strDateTmp = created2.string(from: Date())
+        var changeDate = created2.date(from: strDateTmp)
+        newRecord.setValue(changeDate, forKey: "created_at")
         newRecord.setValue(lat, forKey: "lat")
         newRecord.setValue(long, forKey: "long")
         newRecord.setValue("\(photoUrl)", forKey: "photoUrl")

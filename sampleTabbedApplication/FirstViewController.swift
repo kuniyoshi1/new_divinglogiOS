@@ -54,41 +54,69 @@ class FirstViewController: UIViewController {
                 var created_at: Date! = result.value(forKey: "created_at") as! Date
                 var lat:Double = result.value(forKey: "lat") as! Double
                 var long:Double = result.value(forKey: "long") as! Double
+                var photoUrl:String = result.value(forKey: "photoUrl") as! String
+                var strdate:String = result.value(forKey: "date") as! String
                 
-                let title : NSDictionary =  ["title":title1, "created":created_at, "weit":weit1, "wather":water1,"utmp":utmp1,"tmp":tmp1,"suit":suit1,"stime":stime1,"ftime":ftime1,"spres":spres1,"fpres":fpres1,"point":point1,"memo":memo1,"memo2":memo21,"depth":depth1,"mdepth":mdepth1,"lat":lat,"long":long]
-                settitle3.append(title)
+                let title :NSDictionary =  ["title":title1 as AnyObject, "created":created_at as AnyObject, "weit":weit1 as AnyObject, "wather":water1 as AnyObject,"utmp":utmp1 as AnyObject,"tmp":tmp1 as AnyObject,"suit":suit1 as AnyObject,"stime":stime1 as AnyObject,"ftime":ftime1 as AnyObject,"spres":spres1 as AnyObject,"fpres":fpres1 as AnyObject,"point":point1 as AnyObject,"memo":memo1 as AnyObject,"memo2":memo21 as AnyObject,"depth":depth1 as AnyObject,"mdepth":mdepth1 as AnyObject,"lat":lat as AnyObject,"long":long as AnyObject,"photoUrl":photoUrl as AnyObject,"date":strdate as AnyObject]
+                settitle3.append(title as NSDictionary)
                 
             }
         } catch {
         }
-        var settitle2:NSArray = settitle3 as NSArray
-        let sortDescription = NSSortDescriptor(key: "created", ascending: false)
-        let sortDescAry = [sortDescription]
-        settitle3 = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
+    
+//        var settitle2:NSArray = settitle3 as NSArray
+//        let sortDescription = NSSortDescriptor(key: "created", ascending: false)
+//        let sortDescAry = [sortDescription]
+//        settitle3 = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
 //        print(myAp.test)
 //        print(settitle3[myAp.test]["point"]!)
 //        print ("\(settitle3[myAp.test]["lat"])")
 //        print ("\(settitle3[myAp.test]["long"])")
-       
-        if settitle3.count > 0 {
-        let lat = settitle3[myAp.test]["lat"] as! Double
-        let long = settitle3[myAp.test]["long"] as! Double
-        
-        let center = CLLocationCoordinate2DMake(lat,long)
-        //ピンを生成
-        let Pin:MKPointAnnotation = MKPointAnnotation()
-        //座標を設定
-        Pin.coordinate = center
-        //タイトルを設定
-        Pin.title = "\(settitle3[myAp.test]["title"]!)"
-        
-        //13　ピンを地図に置く
-        self.myMap.addAnnotation(Pin)
-        
-        //14　緯度経度を中心にして半径2000mの範囲を表示
-        self.myMap.region = MKCoordinateRegionMakeWithDistance(center, 20000.0, 20000.0)
+         if settitle3.count > 0 {
+        for i in settitle3{
+            print("key=\(i)")
+            //var torihada = settitle3[i] as! AnyObject
+            print(i["lat"])
+        let lat = i["lat"] as! Double
+        let long = i["long"] as! Double
+            let center = CLLocationCoordinate2DMake(lat,long)
+            //ピンを生成
+            let Pin:MKPointAnnotation = MKPointAnnotation()
+            //座標を設定
+            Pin.coordinate = center
+            //タイトルを設定
+           // Pin.title = "\(settitle3[myAp.test]["title"]!)"
+            
+            //13　ピンを地図に置く
+            self.myMap.addAnnotation(Pin)
+            
+            //14　緯度経度を中心にして半径2000mの範囲を表示
+            self.myMap.region = MKCoordinateRegionMakeWithDistance(center, 2000000.0, 2000000.0)
+
+        }
         }
     }
+    
+//        if settitle3.count > 0 {
+//        let lat = settitle3[myAp.test]["lat"] as! Double
+//        let long = settitle3[myAp.test]["long"] as! Double
+//        
+//        let center = CLLocationCoordinate2DMake(lat,long)
+//        //ピンを生成
+//        let Pin:MKPointAnnotation = MKPointAnnotation()
+//        //座標を設定
+//        Pin.coordinate = center
+//        //タイトルを設定
+//        Pin.title = "\(settitle3[myAp.test]["title"]!)"
+//        
+//        //13　ピンを地図に置く
+//        self.myMap.addAnnotation(Pin)
+//        
+//        //14　緯度経度を中心にして半径2000mの範囲を表示
+//        self.myMap.region = MKCoordinateRegionMakeWithDistance(center, 2000000.0, 2000000.0)
+//        }
+//    }
+    
 
     override func viewDidAppear(_ animated: Bool) {
         //Appdelegateにアクセスするための準備

@@ -31,6 +31,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
     @IBOutlet weak var memo: UITextView!
     @IBOutlet weak var memo2: UITextView!
     @IBOutlet weak var serch: UITextField!
+    @IBOutlet weak var myDatePicker: UIDatePicker!
     
     @IBOutlet weak var dispMap: MKMapView!
     
@@ -43,6 +44,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
     var long:Double = 0
     var photoUrl:String = ""
     var strURL = ""
+    var strDate = ""
     
     
     override func viewDidLoad() {
@@ -172,8 +174,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
 
     }
     }
-    
-    
+
     @IBAction func imagePic(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {    //追記
             //写真ライブラリ(カメラロール)表示用のViewControllerを宣言
@@ -191,7 +192,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         //UserDefaultから取り出す
         // ユーザーデフォルトを用意する
         let myDefault = UserDefaults.standard
-        if photo != nil{
+        if photo != ""{
         // データを取り出す
          strURL = photo
         
@@ -230,11 +231,27 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         // 即反映させる
         myDefault.synchronize()
         photo = strURL
+        let url = URL(string: strURL as String!)
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+        let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+        let manager: PHImageManager = PHImageManager()
+        manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+            self.imageFromCameraRoll.image = image
+        }
+        
         
         //閉じる処理
         imagePicker.dismiss(animated: true, completion: nil)
         
     }
+    
+    @IBAction func changedDate(_ sender: UIDatePicker) {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        print(df.string(from: sender.date))
+        strDate = df.string(from: sender.date)
+    }
+    
     
    
     
@@ -269,6 +286,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         newRecord.setValue(lat, forKey: "lat")
         newRecord.setValue(long, forKey: "long")
         newRecord.setValue("\(photoUrl)", forKey: "photoUrl")
+        newRecord.setValue("\(strDate)", forKey: "date")
         print(lat)
         print(long)
         print(photoUrl)

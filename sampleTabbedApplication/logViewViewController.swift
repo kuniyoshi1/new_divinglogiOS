@@ -29,6 +29,7 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var memo2: UITextView!
     @IBOutlet weak var logMap: MKMapView!
     @IBOutlet weak var logImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var log:Array! = []
      var settitle3:[NSDictionary] = []
@@ -47,18 +48,15 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
         let entityDiscription = NSEntityDescription.entity(forEntityName: "Divinglog", in: viewContext)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Divinglog")
         fetchRequest.entity = entityDiscription
-        
         //Appdelegateにアクセスするための準備
         var myAp = UIApplication.shared.delegate as! AppDelegate
         var df = DateFormatter()
-        df.dateFormat = "yyyy/MM/dd hh:mm:ss +0000"
+        df.dateFormat = "yyyy/MM/dd hh:mm:ss "
         df.timeZone = TimeZone.current
+        print(myAp.myCount)
         //保存していた日付を文字列からDate型に変換
         var savedDateTime:NSDate = df.date(from: "\(myAp.myCount)") as! NSDate
-        
         print(savedDateTime)
-        
-        
         //検索条件として指定
         let predicate = NSPredicate(format: "SELF.created_at = %@", savedDateTime )
         query.predicate = predicate
@@ -86,20 +84,20 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
                 var lat:Double = result.value(forKey: "lat") as! Double
                 var long:Double = result.value(forKey: "long") as! Double
                 var photoUrl:String = result.value(forKey: "photoUrl") as! String
+                var strdate:String = result.value(forKey: "date") as! String
                 
-                let title : NSDictionary =  ["title":title1, "created":created_at, "weit":weit1, "wather":water1,"utmp":utmp1,"tmp":tmp1,"suit":suit1,"stime":stime1,"ftime":ftime1,"spres":spres1,"fpres":fpres1,"point":point1,"memo":memo1,"memo2":memo21,"depth":depth1,"mdepth":mdepth1,"lat":lat,"long":long,"photoUrl":photoUrl]
-                settitle3.append(title)
-            
+                let title : [String:AnyObject] =  ["title":title1 as AnyObject, "created":created_at as AnyObject, "weit":weit1 as AnyObject, "wather":water1 as AnyObject,"utmp":utmp1 as AnyObject,"tmp":tmp1 as AnyObject,"suit":suit1 as AnyObject,"stime":stime1 as AnyObject,"ftime":ftime1 as AnyObject,"spres":spres1 as AnyObject,"fpres":fpres1 as AnyObject,"point":point1 as AnyObject,"memo":memo1 as AnyObject,"memo2":memo21 as AnyObject,"depth":depth1 as AnyObject,"mdepth":mdepth1 as AnyObject,"lat":lat as AnyObject,"long":long as AnyObject,"photoUrl":photoUrl as AnyObject,"date":strdate as AnyObject]
+                settitle3.append(title as NSDictionary)
             }
         } catch {
         }
-        var settitle2:NSArray = settitle3 as NSArray
-        let sortDescription = NSSortDescriptor(key: "created", ascending: false)
-        let sortDescAry = [sortDescription]
-        settitle3 = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
-        print(myAp.test)
-        print(settitle3[myAp.test]["point"]!)
-        
+//        var settitle2:NSArray = settitle3 as NSArray
+//        let sortDescription = NSSortDescriptor(key: "created", ascending: false)
+//        let sortDescAry = [sortDescription]
+//        settitle3 = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
+//        print(myAp.test)
+       myAp.test = 0
+        dateLabel.text = settitle3[myAp.test]["date"] as! String!
         settitle.text = settitle3[myAp.test]["title"] as! String!
         point.text = settitle3[myAp.test]["point"] as! String!
         bady.text = settitle3[myAp.test]["bady"] as! String!
@@ -131,28 +129,25 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
         //13　ピンを地図に置く
         self.logMap.addAnnotation(Pin)
 
-        //14　緯度経度を中心にして半径2000mの範囲を表示
-       self.logMap.region = MKCoordinateRegionMakeWithDistance(center, 2000.0, 2000.0)
+        //14　緯度経度を中心にして半径mの範囲を表示
+       self.logMap.region = MKCoordinateRegionMakeWithDistance(center, 20000.0, 20000.0)
         // データを取り出す
-        let strURL = settitle3[myAp.test]["photoUrl"]
-        print(settitle3[myAp.test]["photoUrl"])
+        var strURL = settitle3[myAp.test]["photoUrl"]
+        print(strURL)
         
-        if settitle3[myAp.test]["photoUrl"] != nil{
-            
-            let url = URL(string: strURL as! String!)
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
-            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
-            let manager: PHImageManager = PHImageManager()
-            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
-                self.logImage.image = image
+        //if  settitle3[myAp.test]["photoUrl"] = nil{
+    let url = URL(string: strURL as! String!)
+    let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+    let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+    let manager: PHImageManager = PHImageManager()
+    manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+    self.logImage.image = image
             }
-        }
+        //}else{
+          logImage.image = UIImage(named: "image.jpg")
+        //}
 
-        
-        
     }
-
-    
     
 
     override func didReceiveMemoryWarning() {

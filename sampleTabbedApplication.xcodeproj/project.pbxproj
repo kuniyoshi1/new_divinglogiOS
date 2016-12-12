@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B27B1251DE5E0A1003200FF /* myTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27B1241DE5E0A1003200FF /* myTableViewCell.swift */; };
+		9B2B0AAA1DF7B0D80010BB01 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B0AA91DF7B0D80010BB01 /* image.jpg */; };
 		9B40B6351DC19F0200FF96AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6341DC19F0200FF96AA /* AppDelegate.swift */; };
 		9B40B6371DC19F0200FF96AA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6361DC19F0200FF96AA /* FirstViewController.swift */; };
 		9B40B6391DC19F0200FF96AA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6381DC19F0200FF96AA /* SecondViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		9B27B1241DE5E0A1003200FF /* myTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myTableViewCell.swift; sourceTree = "<group>"; };
+		9B2B0AA91DF7B0D80010BB01 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		9B40B6311DC19F0200FF96AA /* sampleTabbedApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampleTabbedApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B40B6341DC19F0200FF96AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B40B6361DC19F0200FF96AA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				9B40B6341DC19F0200FF96AA /* AppDelegate.swift */,
 				9B40B6361DC19F0200FF96AA /* FirstViewController.swift */,
 				9B40B6381DC19F0200FF96AA /* SecondViewController.swift */,
+				9B2B0AA91DF7B0D80010BB01 /* image.jpg */,
 				9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */,
 				9B40B63A1DC19F0200FF96AA /* Main.storyboard */,
 				9B40B63D1DC19F0200FF96AA /* Assets.xcassets */,
@@ -262,6 +265,7 @@
 				9B40B6411DC19F0200FF96AA /* LaunchScreen.storyboard in Resources */,
 				9B40B63E1DC19F0200FF96AA /* Assets.xcassets in Resources */,
 				9B40B63C1DC19F0200FF96AA /* Main.storyboard in Resources */,
+				9B2B0AAA1DF7B0D80010BB01 /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = sampleTabbedApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kuniyoshi-ichi.sampleTabbedApplication";

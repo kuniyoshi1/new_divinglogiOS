@@ -14,11 +14,14 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
     var selectedName:String = ""
     var settitle:[NSDictionary] = []
     @IBOutlet weak var myTable: UITableView!
+    @IBOutlet weak var logCount: UILabel!
+
  
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.myTable.isEditing = false
+        
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
         let query: NSFetchRequest<Divinglog> = Divinglog.fetchRequest()
@@ -39,10 +42,8 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
         let sortDescription = NSSortDescriptor(key: "created", ascending: false)
         let sortDescAry = [sortDescription]
         settitle = (settitle2.sortedArray(using: sortDescAry) as NSArray) as! [NSDictionary]
-
-
         
-        
+        logCount.text = "合計LOG数 \(settitle.count)件"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,8 +88,24 @@ class thirdViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
     @IBAction func returenMenu(segue:UIStoryboardSegue){
     }
-
-
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    @IBAction func editBtn(_ sender: UIButton) {
+        if self.myTable.isEditing == true{
+            
+           self.myTable.isEditing = false
+        }else{
+            self.myTable.isEditing = true
+        }
+}
+        func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -18,9 +18,9 @@
 		9B40B64C1DC19F0200FF96AA /* sampleTabbedApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B64B1DC19F0200FF96AA /* sampleTabbedApplicationTests.swift */; };
 		9B40B6571DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6561DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift */; };
 		9B40B6651DC1A6E000FF96AA /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */; };
+		9BEE40C91DFE384900CC2C4C /* logmodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE40C71DFE384900CC2C4C /* logmodel.xcdatamodeld */; };
 		9BF314251DE2827000A3EB63 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF314241DE2827000A3EB63 /* profileViewController.swift */; };
 		9BF314611DE3DECD00A3EB63 /* logViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF314601DE3DECD00A3EB63 /* logViewViewController.swift */; };
-		9BFD85DA1DDD523C0069F9C5 /* logmodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD85D81DDD523C0069F9C5 /* logmodel.xcdatamodeld */; };
 		9BFD85DD1DDD57070069F9C5 /* Divinglog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD85DB1DDD57070069F9C5 /* Divinglog+CoreDataClass.swift */; };
 		9BFD85DE1DDD57070069F9C5 /* Divinglog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD85DC1DDD57070069F9C5 /* Divinglog+CoreDataProperties.swift */; };
 		9BFD85E01DDEAC5D0069F9C5 /* CountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD85DF1DDEAC5D0069F9C5 /* CountViewController.swift */; };
@@ -61,9 +61,9 @@
 		9B40B6561DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleTabbedApplicationUITests.swift; sourceTree = "<group>"; };
 		9B40B6581DC19F0200FF96AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
+		9BEE40C81DFE384900CC2C4C /* logmodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = logmodel.xcdatamodel; sourceTree = "<group>"; };
 		9BF314241DE2827000A3EB63 /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		9BF314601DE3DECD00A3EB63 /* logViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logViewViewController.swift; sourceTree = "<group>"; };
-		9BFD85D91DDD523C0069F9C5 /* logmodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = logmodel.xcdatamodel; sourceTree = "<group>"; };
 		9BFD85DB1DDD57070069F9C5 /* Divinglog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Divinglog+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9BFD85DC1DDD57070069F9C5 /* Divinglog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Divinglog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9BFD85DF1DDEAC5D0069F9C5 /* CountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 		9B40B6331DC19F0200FF96AA /* sampleTabbedApplication */ = {
 			isa = PBXGroup;
 			children = (
+				9BEE40C71DFE384900CC2C4C /* logmodel.xcdatamodeld */,
 				9B40B6341DC19F0200FF96AA /* AppDelegate.swift */,
 				9B40B6361DC19F0200FF96AA /* FirstViewController.swift */,
 				9B40B6381DC19F0200FF96AA /* SecondViewController.swift */,
@@ -128,7 +129,6 @@
 				9B40B63D1DC19F0200FF96AA /* Assets.xcassets */,
 				9B40B63F1DC19F0200FF96AA /* LaunchScreen.storyboard */,
 				9B40B6421DC19F0200FF96AA /* Info.plist */,
-				9BFD85D81DDD523C0069F9C5 /* logmodel.xcdatamodeld */,
 				9BFD85DF1DDEAC5D0069F9C5 /* CountViewController.swift */,
 				9BF314241DE2827000A3EB63 /* profileViewController.swift */,
 				9BF314601DE3DECD00A3EB63 /* logViewViewController.swift */,
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B40B6391DC19F0200FF96AA /* SecondViewController.swift in Sources */,
-				9BFD85DA1DDD523C0069F9C5 /* logmodel.xcdatamodeld in Sources */,
 				9BF314251DE2827000A3EB63 /* profileViewController.swift in Sources */,
 				9B27B1251DE5E0A1003200FF /* myTableViewCell.swift in Sources */,
+				9BEE40C91DFE384900CC2C4C /* logmodel.xcdatamodeld in Sources */,
 				9BFD85DE1DDD57070069F9C5 /* Divinglog+CoreDataProperties.swift in Sources */,
 				9BF314611DE3DECD00A3EB63 /* logViewViewController.swift in Sources */,
 				9B40B6351DC19F0200FF96AA /* AppDelegate.swift in Sources */,
@@ -569,12 +569,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9BFD85D81DDD523C0069F9C5 /* logmodel.xcdatamodeld */ = {
+		9BEE40C71DFE384900CC2C4C /* logmodel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9BFD85D91DDD523C0069F9C5 /* logmodel.xcdatamodel */,
+				9BEE40C81DFE384900CC2C4C /* logmodel.xcdatamodel */,
 			);
-			currentVersion = 9BFD85D91DDD523C0069F9C5 /* logmodel.xcdatamodel */;
+			currentVersion = 9BEE40C81DFE384900CC2C4C /* logmodel.xcdatamodel */;
 			path = logmodel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

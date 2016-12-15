@@ -19,6 +19,11 @@
 		9B40B6571DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6561DC19F0200FF96AA /* sampleTabbedApplicationUITests.swift */; };
 		9B40B6651DC1A6E000FF96AA /* thirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */; };
 		9BEE40C91DFE384900CC2C4C /* logmodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE40C71DFE384900CC2C4C /* logmodel.xcdatamodeld */; };
+		9BEE40CB1E00DAD600CC2C4C /* あいこん.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEE40CA1E00DAD600CC2C4C /* あいこん.png */; };
+		9BEE40CD1E00DC5B00CC2C4C /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEE40CC1E00DC5B00CC2C4C /* icon2.png */; };
+		9BEE40CF1E00E13600CC2C4C /* thumb5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BEE40CE1E00E13600CC2C4C /* thumb5.jpg */; };
+		9BEE40D11E00E28100CC2C4C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BEE40D01E00E28100CC2C4C /* back.png */; };
+		9BEE40D31E00F3B200CC2C4C /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BEE40D21E00F3B200CC2C4C /* noimage.jpg */; };
 		9BF314251DE2827000A3EB63 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF314241DE2827000A3EB63 /* profileViewController.swift */; };
 		9BF314611DE3DECD00A3EB63 /* logViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF314601DE3DECD00A3EB63 /* logViewViewController.swift */; };
 		9BFD85DD1DDD57070069F9C5 /* Divinglog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFD85DB1DDD57070069F9C5 /* Divinglog+CoreDataClass.swift */; };
@@ -62,6 +67,11 @@
 		9B40B6581DC19F0200FF96AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thirdViewController.swift; sourceTree = "<group>"; };
 		9BEE40C81DFE384900CC2C4C /* logmodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = logmodel.xcdatamodel; sourceTree = "<group>"; };
+		9BEE40CA1E00DAD600CC2C4C /* あいこん.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "あいこん.png"; sourceTree = "<group>"; };
+		9BEE40CC1E00DC5B00CC2C4C /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
+		9BEE40CE1E00E13600CC2C4C /* thumb5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumb5.jpg; sourceTree = "<group>"; };
+		9BEE40D01E00E28100CC2C4C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		9BEE40D21E00F3B200CC2C4C /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
 		9BF314241DE2827000A3EB63 /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		9BF314601DE3DECD00A3EB63 /* logViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logViewViewController.swift; sourceTree = "<group>"; };
 		9BFD85DB1DDD57070069F9C5 /* Divinglog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Divinglog+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -121,9 +131,14 @@
 			children = (
 				9BEE40C71DFE384900CC2C4C /* logmodel.xcdatamodeld */,
 				9B40B6341DC19F0200FF96AA /* AppDelegate.swift */,
+				9BEE40CE1E00E13600CC2C4C /* thumb5.jpg */,
+				9BEE40D01E00E28100CC2C4C /* back.png */,
 				9B40B6361DC19F0200FF96AA /* FirstViewController.swift */,
 				9B40B6381DC19F0200FF96AA /* SecondViewController.swift */,
 				9B2B0AA91DF7B0D80010BB01 /* image.jpg */,
+				9BEE40CC1E00DC5B00CC2C4C /* icon2.png */,
+				9BEE40D21E00F3B200CC2C4C /* noimage.jpg */,
+				9BEE40CA1E00DAD600CC2C4C /* あいこん.png */,
 				9B40B6641DC1A6E000FF96AA /* thirdViewController.swift */,
 				9B40B63A1DC19F0200FF96AA /* Main.storyboard */,
 				9B40B63D1DC19F0200FF96AA /* Assets.xcassets */,
@@ -223,6 +238,7 @@
 				TargetAttributes = {
 					9B40B6301DC19F0200FF96AA = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = BE293WPAL4;
 						ProvisioningStyle = Automatic;
 					};
 					9B40B6461DC19F0200FF96AA = {
@@ -262,10 +278,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BEE40CF1E00E13600CC2C4C /* thumb5.jpg in Resources */,
 				9B40B6411DC19F0200FF96AA /* LaunchScreen.storyboard in Resources */,
+				9BEE40D31E00F3B200CC2C4C /* noimage.jpg in Resources */,
 				9B40B63E1DC19F0200FF96AA /* Assets.xcassets in Resources */,
 				9B40B63C1DC19F0200FF96AA /* Main.storyboard in Resources */,
+				9BEE40D11E00E28100CC2C4C /* back.png in Resources */,
 				9B2B0AAA1DF7B0D80010BB01 /* image.jpg in Resources */,
+				9BEE40CB1E00DAD600CC2C4C /* あいこん.png in Resources */,
+				9BEE40CD1E00DC5B00CC2C4C /* icon2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BE293WPAL4;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				INFOPLIST_FILE = sampleTabbedApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -465,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BE293WPAL4;
 				INFOPLIST_FILE = sampleTabbedApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kuniyoshi-ichi.sampleTabbedApplication";

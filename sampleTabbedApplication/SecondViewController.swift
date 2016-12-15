@@ -65,6 +65,14 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         stime.delegate = self
         ftime.delegate = self
         serch.delegate = self
+        
+        imageFromCameraRoll.image = UIImage(named: "noimage.jpg")
+
+//        UIGraphicsBeginImageContext(self.view.frame.size)
+//        UIImage(named: "back.png")?.draw(in: self.view.bounds)
+//        let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        self.view.backgroundColor = UIColor(patternImage: image)
 
         
         //アノテーションビューを返すメソッド
@@ -214,12 +222,13 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         
         let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]! as AnyObject
         
-        let strURL:String = assetURL.description
+        var strURL:String = assetURL.description
         
         //Coredeta用に代入
         photoUrl = strURL
         
-        print(photoUrl)
+        
+        print("ははははは\(photoUrl)")
         
         
         // ユーザーデフォルトを用意する
@@ -252,6 +261,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         strDate = df.string(from: sender.date)
     }
     
+   
     
    
     
@@ -285,6 +295,9 @@ class SecondViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         newRecord.setValue(changeDate, forKey: "created_at")
         newRecord.setValue(lat, forKey: "lat")
         newRecord.setValue(long, forKey: "long")
+        if photoUrl == ""{
+        photoUrl = "noimage.jpg"
+        }
         newRecord.setValue("\(photoUrl)", forKey: "photoUrl")
         newRecord.setValue("\(strDate)", forKey: "date")
         print(lat)

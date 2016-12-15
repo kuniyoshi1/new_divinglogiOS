@@ -40,6 +40,26 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+            settitle.isEnabled = false
+            point.isEnabled = false
+        bady.isEnabled = false
+        wather.isEnabled = false
+        tmp.isEnabled = false
+        utmp.isEnabled = false
+        weit.isEnabled = false
+        suits.isEnabled = false
+        depth.isEnabled = false
+        mdepth.isEnabled = false
+        spres.isEnabled = false
+        fpres.isEnabled = false
+        memo.isEditable = false
+        memo.isEditable = false
+        
+//        UIGraphicsBeginImageContext(self.view.frame.size)
+//        UIImage(named: "back.png")?.draw(in: self.view.bounds)
+//        let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        self.view.backgroundColor = UIColor(patternImage: image)
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
@@ -65,29 +85,28 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
             let fetchResults = try viewContext.fetch(query)
             print(fetchResults)
             for result: AnyObject in fetchResults {
-                var title1:String = result.value(forKey: "title") as! String
-                var weit1:String = result.value(forKey: "weit") as! String
-                var water1:String = result.value(forKey: "wather") as! String
-                var utmp1:String = result.value(forKey: "utmp") as! String
-                var tmp1:String = result.value(forKey: "tmp") as! String
-                var suit1:String = result.value(forKey: "suit") as! String
-                var stime1:String = result.value(forKey: "stime") as! String
-                var ftime1:String = result.value(forKey: "ftime") as! String
-                var spres1:String = result.value(forKey: "spres") as! String
-                var fpres1:String = result.value(forKey: "fpres") as! String
-                var point1:String = result.value(forKey: "point") as! String
-                var memo1:String = result.value(forKey: "memo") as! String
-                var memo21:String = result.value(forKey: "memo2") as! String
-                var depth1:String = result.value(forKey: "depth") as! String
-                var mdepth1:String = result.value(forKey: "mdepth") as! String
-                var created_at: Date! = result.value(forKey: "created_at") as! Date
-                var lat:Double = result.value(forKey: "lat") as! Double
-                var long:Double = result.value(forKey: "long") as! Double
-                var photoUrl:String = result.value(forKey: "photoUrl") as! String
-                var strdate:String = result.value(forKey: "date") as! String
-                
-                let title : [String:AnyObject] =  ["title":title1 as AnyObject, "created":created_at as AnyObject, "weit":weit1 as AnyObject, "wather":water1 as AnyObject,"utmp":utmp1 as AnyObject,"tmp":tmp1 as AnyObject,"suit":suit1 as AnyObject,"stime":stime1 as AnyObject,"ftime":ftime1 as AnyObject,"spres":spres1 as AnyObject,"fpres":fpres1 as AnyObject,"point":point1 as AnyObject,"memo":memo1 as AnyObject,"memo2":memo21 as AnyObject,"depth":depth1 as AnyObject,"mdepth":mdepth1 as AnyObject,"lat":lat as AnyObject,"long":long as AnyObject,"photoUrl":photoUrl as AnyObject,"date":strdate as AnyObject]
-                settitle3.append(title as NSDictionary)
+                var dicTmp:NSMutableDictionary = NSMutableDictionary()
+                dicTmp["title"] = result.value(forKey: "title") as! String
+                dicTmp["weit"] = result.value(forKey: "weit") as! String
+                dicTmp["wather"] = result.value(forKey: "wather") as! String
+                dicTmp["utmp"] = result.value(forKey: "utmp") as! String
+                dicTmp["tmp"] = result.value(forKey: "tmp") as! String
+                dicTmp["suit"] = result.value(forKey: "suit") as! String
+                dicTmp["stime"] = result.value(forKey: "stime") as! String
+                dicTmp["ftime"] = result.value(forKey: "ftime") as! String
+                dicTmp["spres"] = result.value(forKey: "spres") as! String
+                dicTmp["fpres"] = result.value(forKey: "fpres") as! String
+                dicTmp["point"] = result.value(forKey: "point") as! String
+                dicTmp["memo"] = result.value(forKey: "memo") as! String
+                dicTmp["memo2"] = result.value(forKey: "memo2") as! String
+                dicTmp["depth"] = result.value(forKey: "depth") as! String
+                dicTmp["mdepth"] = result.value(forKey: "mdepth") as! String
+                dicTmp["created_at"] = result.value(forKey: "created_at") as! Date
+                dicTmp["lat"] = result.value(forKey: "lat") as! Double
+                dicTmp["long"] = result.value(forKey: "long") as! Double
+                dicTmp["photoUrl"] = result.value(forKey: "photoUrl") as! String
+                dicTmp["date"] = result.value(forKey: "date") as! String
+                settitle3.append(dicTmp)
             }
         } catch {
         }
@@ -132,21 +151,18 @@ class logViewViewController: UIViewController,UIImagePickerControllerDelegate, U
         //14　緯度経度を中心にして半径mの範囲を表示
        self.logMap.region = MKCoordinateRegionMakeWithDistance(center, 20000.0, 20000.0)
         // データを取り出す
-        var strURL = settitle3[myAp.test]["photoUrl"]
+        var strURL = settitle3[myAp.test]["photoUrl"] as! String
         print(strURL)
-        
-        //if  settitle3[myAp.test]["photoUrl"] = nil{
+          logImage.image = UIImage(named: "noimage.jpg")
+        if strURL != "noimage.jpg" {
     let url = URL(string: strURL as! String!)
     let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
-    let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+        let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
     let manager: PHImageManager = PHImageManager()
     manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
     self.logImage.image = image
-            }
-        //}else{
-          logImage.image = UIImage(named: "image.jpg")
-        //}
-
+        }
+        }
     }
     
 

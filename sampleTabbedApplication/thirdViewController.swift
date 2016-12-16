@@ -21,7 +21,7 @@ var settitle3:[NSDictionary] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myTable.isEditing = false
-        
+               
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
         let query: NSFetchRequest<Divinglog> = Divinglog.fetchRequest()
@@ -105,7 +105,7 @@ var settitle3:[NSDictionary] = []
     self.settitle.remove(at: indexPath.row)
     // それからテーブルの更新
     tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
-         var cell2 = myTable.cellForRow(at: indexPath) as! myTableViewCell
+        var cell2 = myTable.cellForRow(at: indexPath) as! myTableViewCell
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
